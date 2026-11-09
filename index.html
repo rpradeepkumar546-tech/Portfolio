@@ -1,0 +1,2144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pradeepkumar R | Portfolio</title>
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #09090a;
+    color: #f5f5f7;
+    overflow-x: hidden;
+    transition: background .4s ease, color .4s ease;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 76px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 28px;
+
+    background: rgba(10,10,11,.92);
+    backdrop-filter: blur(16px);
+
+    border-bottom: 1px solid #202024;
+
+    z-index: 9999;
+}
+
+.logo {
+    font-size: 17px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.nav-link {
+    font-size: 13px;
+    font-weight: 600;
+
+    color: #909bad;
+
+    padding: 8px 9px;
+
+    border-radius: 8px;
+
+    transition: .25s ease;
+}
+
+.nav-link:hover {
+    color: #ffffff;
+    background: rgba(255,255,255,.04);
+}
+
+
+/* ONLY CONTACT BUTTON IS VISIBLE */
+
+.contact-nav {
+    background: #8585f5;
+    color: #08080a;
+
+    padding: 11px 18px;
+
+    margin-left: 4px;
+
+    border-radius: 9px;
+}
+
+.contact-nav:hover {
+    background: #9999ff;
+    color: #08080a;
+}
+
+
+/* THEME BUTTON */
+
+.theme-button {
+    width: 39px;
+    height: 39px;
+
+    margin-left: 3px;
+
+    border: 1px solid #303036;
+    border-radius: 9px;
+
+    background: transparent;
+    color: #a2aec0;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 17px;
+
+    transition: .3s;
+}
+
+.theme-button:hover {
+    background: #19191d;
+    color: white;
+}
+
+
+/* =====================================================
+   SECTION COMMON
+===================================================== */
+
+.page {
+    min-height: 100vh;
+
+    position: relative;
+
+    padding: 125px 7% 90px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+
+/*
+   Black/gray boxed separation
+   between every next section.
+*/
+
+.page::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 1px;
+
+    background: #29292d;
+}
+
+
+/* =====================================================
+   DOT BACKGROUND
+===================================================== */
+
+.dotted {
+    background-color: #0d0d0f;
+
+    background-image:
+        radial-gradient(
+            rgba(105,105,135,.22) 1px,
+            transparent 1px
+        );
+
+    background-size: 18px 18px;
+}
+
+
+/*
+   Some sections don't need dots.
+*/
+
+.no-dots {
+    background: #0b0b0c;
+}
+
+
+/* =====================================================
+   SECTION TITLES
+===================================================== */
+
+.section-title {
+    font-size: clamp(38px, 4vw, 56px);
+
+    line-height: 1.1;
+
+    font-weight: 750;
+
+    text-align: center;
+
+    letter-spacing: -1.5px;
+
+    margin-bottom: 14px;
+}
+
+.underline {
+    width: 72px;
+    height: 1px;
+
+    background: #7777df;
+
+    margin-bottom: 58px;
+}
+
+
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
+
+/*
+   IMPORTANT:
+
+   Once an element becomes visible,
+   it stays visible.
+
+   It DOES NOT disappear when scrolling away.
+*/
+
+.reveal {
+    opacity: 0;
+
+    transform:
+        translateY(45px);
+
+    transition:
+        opacity .9s ease,
+        transform .9s cubic-bezier(.2,.7,.2,1);
+}
+
+.reveal.show {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+/* =====================================================
+   HOME / PROFILE 
+===================================================== */
+
+#home {
+    min-height: 100vh;
+
+    padding-top: 100px;
+
+    background:
+        radial-gradient(
+            circle at 50% 43%,
+            rgba(85,85,125,.16),
+            transparent 38%
+        ),
+        #0b0b0d;
+}
+
+.profile-dots {
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+}
+
+.profile-dot {
+    position: absolute;
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: #8bdcff;
+
+    box-shadow: 0 0 12px rgba(139,220,255,.42);
+}
+
+.profile-dot:nth-child(1) {
+    top: 17%;
+    left: 42%;
+    width: 4px;
+    height: 4px;
+}
+
+.profile-dot:nth-child(2) {
+    top: 43%;
+    right: 11%;
+    width: 7px;
+    height: 7px;
+}
+
+.profile-dot:nth-child(3) {
+    top: 49%;
+    left: 10%;
+    width: 6px;
+    height: 6px;
+}
+
+.profile-dot:nth-child(4) {
+    top: 80%;
+    right: 20%;
+    width: 5px;
+    height: 5px;
+}
+
+.profile-dot:nth-child(5) {
+    bottom: 18%;
+    left: 30%;
+    width: 8px;
+    height: 8px;
+}
+
+.profile-dot:nth-child(6) {
+    bottom: 72%;
+    right: 33%;
+    width: 5px;
+    height: 5px;
+}
+
+.profile-holder {
+    width: 185px;
+    height: 185px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    border: 5px solid #8585f5;
+
+    background: #eeeeee;
+
+    margin-bottom: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow:
+        0 0 30px rgba(110,110,255,.10);
+}
+
+.profile-holder img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center 35%;
+}
+
+.photo-placeholder {
+    color: #555;
+    text-align: center;
+    font-size: 13px;
+}
+
+
+/* AVAILABLE */
+
+.available {
+    padding: 8px 17px;
+
+    border: 1px solid #086c56;
+
+    background: rgba(0,120,90,.08);
+
+    color: #11c792;
+
+    border-radius: 25px;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    margin-bottom: 25px;
+}
+
+.available-dot {
+    display: inline-block;
+
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #00d596;
+
+    margin-right: 8px;
+
+    box-shadow: 0 0 9px #00d596;
+}
+
+
+/* NAME */
+
+.hero-name {
+    font-size: clamp(48px, 6vw, 76px);
+
+    font-weight: 800;
+
+    letter-spacing: -2.5px;
+
+    text-align: center;
+
+    margin-bottom: 14px;
+}
+
+
+/* ROLE */
+
+.hero-role {
+    font-size: clamp(21px, 2.5vw, 28px);
+
+    font-weight: 600;
+
+    color: #9aa8bb;
+
+    text-align: center;
+
+    margin-bottom: 25px;
+}
+
+
+/* DESCRIPTION */
+
+.hero-description {
+    max-width: 680px;
+
+    text-align: center;
+
+    color: #95a2b6;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   SOCIAL ICONS
+===================================================== */
+
+.social-links {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 30px;
+}
+
+.social-links a {
+    width: 46px;
+    height: 46px;
+
+    border: 1px solid #29292e;
+
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #9aa7ba;
+
+    transition: .3s ease;
+}
+
+.social-links a:hover {
+    border-color: #7777ee;
+
+    color: white;
+
+    background: #16161c;
+
+    transform: translateY(-3px);
+}
+
+.linkedin-badge {
+    font-weight: 800;
+    letter-spacing: -0.08em;
+}
+
+
+/* =====================================================
+   GITHUB SVG
+===================================================== */
+
+.github-icon {
+    width: 19px;
+    height: 19px;
+
+    fill: currentColor;
+}
+
+
+/* =====================================================
+   ABOUT
+===================================================== */
+
+#about {
+    background: #111113;
+}
+
+.about-content {
+    max-width: 760px;
+
+    text-align: center;
+
+    color: #96a3b7;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+}
+
+.about-content p {
+    margin-bottom: 13px;
+}
+
+.about-content strong {
+    color: #e3e6ec;
+}
+
+
+/* =====================================================
+   SKILLS
+===================================================== */
+
+#skills {
+    min-height: auto;
+
+    background-color: #0d0d0f;
+
+    background-image:
+        radial-gradient(
+            rgba(164,169,181,.34) 1px,
+            transparent 1px
+        );
+
+    background-size: 20px 20px;
+}
+
+.skills-grid {
+    width: 80%;
+    max-width: 800px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 14px;
+}
+
+.skill-card {
+    min-height: 78px;
+
+    padding: 15px;
+
+    border: 1px solid #29292e;
+
+    border-radius: 13px;
+
+    background: #151517;
+
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    transition: .3s ease;
+}
+
+.skill-card:hover {
+    border-color: #7777ee;
+
+    transform: translateY(-4px);
+}
+
+.skill-icon {
+    min-width: 40px;
+    height: 40px;
+
+    border-radius: 9px;
+
+    background: #1d1d31;
+
+    color: #8989ff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.skill-card h3 {
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.skill-card p {
+    font-size: 12px;
+    color: #8995a8;
+}
+
+
+/* =====================================================
+   SELECTED WORK
+===================================================== */
+
+#work {
+    background: #111113;
+}
+
+.work-grid {
+    width: min(1000px,100%);
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(270px,1fr));
+
+    gap: 15px;
+}
+
+.project-card {
+    padding: 24px;
+
+    min-height: 220px;
+
+    background: #151517;
+
+    border: 1px solid #29292e;
+
+    border-radius: 14px;
+
+    transition: .3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+
+    border-color: #7777ee;
+}
+
+.project-number {
+    color: #8585f5;
+
+    font-size: 12px;
+
+    margin-bottom: 15px;
+}
+
+.project-card h3 {
+    font-size: 20px;
+
+    margin-bottom: 10px;
+}
+
+.project-card p {
+    color: #909caf;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+.tags {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 6px;
+
+    margin-top: 18px;
+}
+
+.tags span {
+    background: #20202c;
+
+    color: #9999ff;
+
+    padding: 5px 8px;
+
+    border-radius: 6px;
+
+    font-size: 11px;
+}
+
+
+/* =====================================================
+   EDUCATION
+===================================================== */
+
+#education {
+    background: #0d0d0f;
+}
+
+.education-container {
+    width: min(950px,100%);
+
+    position: relative;
+}
+
+.education-item {
+    position: relative;
+
+    padding-left: 48px;
+}
+
+.timeline-dot {
+    position: absolute;
+
+    left: 6px;
+    top: 12px;
+
+    width: 14px;
+    height: 14px;
+
+    border-radius: 50%;
+
+    background: #8585ff;
+
+    box-shadow:
+        0 0 13px rgba(133,133,255,.45);
+}
+
+.education-card {
+    padding: 26px;
+
+    background: #151517;
+
+    border: 1px solid #29292e;
+
+    border-radius: 14px;
+
+    transition: .3s ease;
+}
+
+.education-card:hover {
+    border-color: #7777ee;
+
+    box-shadow:
+        0 0 18px rgba(119,119,238,.28);
+
+    transform: translateY(-4px);
+}
+
+.year {
+    display: inline-block;
+
+    padding: 6px 11px;
+
+    border-radius: 18px;
+
+    background: #202033;
+
+    color: #8b8bff;
+
+    font-size: 12px;
+
+    margin-bottom: 15px;
+}
+
+.education-card h3 {
+    font-size: 19px;
+
+    margin-bottom: 7px;
+}
+
+.college {
+    color: #8989ff;
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   CERTIFICATIONS
+===================================================== */
+
+#certifications {
+    background: #171719;
+}
+
+.cert-list {
+    width: min(1000px,100%);
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.cert-card {
+    padding: 20px 25px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 17px;
+
+    background: #151517;
+
+    color: inherit;
+    text-decoration: none;
+
+    border: 1px solid #29292e;
+
+    border-radius: 14px;
+
+    transition: .3s;
+}
+
+.cert-card:hover {
+    border-color: #7777ee;
+
+    transform: translateX(4px);
+}
+
+.cert-icon {
+    color: #9aa7ba;
+
+    font-size: 21px;
+}
+
+.cert-info {
+    flex: 1;
+}
+
+.cert-info h3 {
+    font-size: 16px;
+
+    margin-bottom: 5px;
+}
+
+.cert-info p {
+    color: #8995a8;
+
+    font-size: 13px;
+}
+
+.arrow {
+    color: #8995a8;
+
+    font-size: 21px;
+}
+
+
+/* =====================================================
+   CONTACT
+===================================================== */
+
+#contact {
+    background: #0b0b0c;
+
+    justify-content: center;
+}
+
+.contact-box {
+    width: min(850px,100%);
+
+    padding: 32px;
+
+    background: #171719;
+
+    border: 1px solid #2b2b30;
+
+    border-radius: 17px;
+
+    box-shadow:
+        0 20px 70px rgba(0,0,0,.25);
+}
+
+
+/*
+   Email = first line
+   Phone = second line
+   Social icons = below
+*/
+
+.contact-line {
+    width: 100%;
+
+    min-height: 60px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 18px;
+
+    background: #141416;
+
+    border: 1px solid #2b2b30;
+
+    border-radius: 10px;
+
+    color: #e5e7ed;
+
+    font-size: 15px;
+
+    margin-bottom: 13px;
+
+    transition: .3s;
+}
+
+
+.contact-line:hover {
+    border-color: #7777ee;
+
+    background: #18181d;
+}
+
+.contact-line-icon {
+    width: 27px;
+
+    color: #9da9ba;
+
+    font-size: 17px;
+}
+
+
+/* SOCIALS BELOW PHONE */
+
+.contact-social {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 27px;
+}
+
+.contact-social a {
+    width: 46px;
+    height: 46px;
+
+    border-radius: 10px;
+
+    border: 1px solid #303036;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #a0adbf;
+
+    transition: .3s;
+}
+
+.contact-social a:hover {
+    background: #16161c;
+
+    border-color: #7777ee;
+
+    color: white;
+
+    transform: translateY(-3px);
+}
+
+
+/* =====================================================
+   COPYRIGHT
+===================================================== */
+
+.copyright {
+    padding: 24px 20px;
+
+    background: #09090a;
+
+    color: #8995a8;
+
+    font-size: 13px;
+
+    text-align: center;
+}
+
+
+/* =====================================================
+   LIGHT THEME
+===================================================== */
+
+body.light {
+    background: #f4f4f6;
+
+    color: #17171a;
+}
+
+
+/* navbar */
+
+body.light .navbar {
+    background: rgba(248,248,250,.92);
+
+    border-color: #dddddf;
+}
+
+body.light .logo {
+    color: #16161a;
+}
+
+body.light .nav-link {
+    color: #626875;
+}
+
+body.light .nav-link:hover {
+    color: #111;
+
+    background: #e9e9ee;
+}
+
+body.light .theme-button {
+    color: #444;
+
+    border-color: #d2d2d6;
+}
+
+
+/* sections */
+
+body.light #home {
+    background:
+        radial-gradient(
+            circle at 50% 43%,
+            rgba(100,100,150,.10),
+            transparent 40%
+        ),
+        #f7f7f8;
+}
+
+body.light #about {
+    background: #eeeeef;
+}
+
+body.light #skills {
+    background-color: #f5f5f6;
+
+    background-image:
+        radial-gradient(
+            #cfcfd4 1px,
+            transparent 1px
+        );
+
+    background-size: 18px 18px;
+}
+
+body.light #work {
+    background: #eeeeef;
+}
+
+body.light #education {
+    background: #f5f5f6;
+}
+
+body.light #certifications {
+    background: #e9e9eb;
+}
+
+body.light #contact {
+    background: #f5f5f6;
+}
+
+
+/* cards */
+
+body.light .skill-card,
+body.light .project-card,
+body.light .education-card,
+body.light .cert-card,
+body.light .contact-box,
+body.light .contact-line {
+    background: #ffffff;
+
+    border-color: #d7d7dc;
+}
+
+body.light .about-content,
+body.light .hero-description {
+    color: #5f6775;
+}
+
+body.light .hero-role {
+    color: #626b7b;
+}
+
+body.light .about-content strong {
+    color: #202126;
+}
+
+body.light .contact-line {
+    color: #24252a;
+}
+
+body.light .contact-social a {
+    color: #555d69;
+
+    border-color: #d0d0d5;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:900px) {
+
+    .navbar {
+        padding: 0 17px;
+    }
+
+    .nav-right {
+        gap: 2px;
+    }
+
+    .nav-link {
+        padding: 7px 6px;
+        font-size: 12px;
+    }
+
+    .contact-nav {
+        padding: 10px 13px;
+    }
+
+    .theme-button {
+        display: none;
+    }
+
+    .page {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+
+@media(max-width:650px) {
+
+    .navbar {
+        height: 68px;
+    }
+
+    .logo {
+        font-size: 15px;
+    }
+
+    .nav-link:nth-child(3),
+    .nav-link:nth-child(4) {
+        display: none;
+    }
+
+    .hero-name {
+        font-size: 44px;
+
+        letter-spacing: -1.5px;
+    }
+
+    .hero-role {
+        font-size: 19px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+    .profile-holder {
+        width: 145px;
+        height: 145px;
+    }
+
+    .section-title {
+        font-size: 39px;
+    }
+
+    .about-content {
+        font-size: 15px;
+    }
+
+    .contact-box {
+        padding: 20px;
+    }
+
+    .contact-line {
+        font-size: 13px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header class="navbar">
+
+    <div class="logo">
+        Pradeepkumar R
+    </div>
+
+    <div class="nav-right">
+
+        <a href="#about" class="nav-link">
+            About Me
+        </a>
+
+        <a href="#skills" class="nav-link">
+            Skills & Tools
+        </a>
+
+        <a href="#work" class="nav-link">
+            Selected Work
+        </a>
+
+        <a href="#education" class="nav-link">
+            Education
+        </a>
+
+        <!-- ONLY THIS IS VISIBLE -->
+        <a href="#contact" class="nav-link contact-nav">
+            Contact
+        </a>
+
+        <button class="theme-button" id="themeButton">
+            ☼
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     1. PROFILE
+===================================================== -->
+
+<section id="home" class="page dotted">
+
+    <div class="profile-dots" aria-hidden="true">
+        <span class="profile-dot"></span>
+        <span class="profile-dot"></span>
+        <span class="profile-dot"></span>
+        <span class="profile-dot"></span>
+        <span class="profile-dot"></span>
+        <span class="profile-dot"></span>
+    </div>
+
+    <div class="profile-holder reveal">
+
+        <img
+            src="profile.jpeg"
+            alt="Pradeepkumar R"
+            onerror="
+                this.style.display='none';
+                document.getElementById('photoPlaceholder').style.display='block';
+            "
+        >
+
+        <div
+            id="photoPlaceholder"
+            class="photo-placeholder"
+            style="display:none;"
+        >
+            Profile<br>Photo
+        </div>
+
+    </div>
+
+
+    <div class="available reveal">
+
+        <span class="available-dot"></span>
+
+        Available for new opportunities
+
+    </div>
+
+
+    <h1 class="hero-name reveal">
+        Pradeepkumar R
+    </h1>
+
+
+    <h2 class="hero-role reveal">
+        Front End Developer & UI/UX Designer
+    </h2>
+
+
+    <p class="hero-description reveal">
+        Passionate about web development, cloud-native applications,
+        and building intelligent systems.
+    </p>
+
+
+    <div class="social-links reveal">
+
+        <!-- EXACT GITHUB STYLE SVG -->
+
+        <a
+            href="https://github.com/rpradeepkumar546-tech"
+            target="_blank"
+            aria-label="GitHub"
+        >
+
+            <svg
+                class="github-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+            >
+
+                <path d="
+                    M12 .5
+                    C5.65 .5 .5 5.65 .5 12
+                    c0 5.08 3.29 9.39 7.86 10.91
+                    .58.11.79-.25.79-.56
+                    0-.27-.01-1.16-.02-2.11
+                    -3.2.7-3.88-1.37-3.88-1.37
+                    -.53-1.33-1.28-1.68-1.28-1.68
+                    -1.05-.72.08-.7.08-.7
+                    1.16.08 1.77 1.19 1.77 1.19
+                    1.03 1.76 2.71 1.25 3.37.95
+                    .1-.75.4-1.25.73-1.54
+                    -2.55-.29-5.23-1.28-5.23-5.69
+                    0-1.26.45-2.29 1.19-3.1
+                    -.12-.29-.52-1.46.11-3.05
+                    0 0 .97-.31 3.17 1.18
+                    .92-.26 1.9-.39 2.88-.39
+                    .98 0 1.96.13 2.88.39
+                    2.2-1.49 3.17-1.18 3.17-1.18
+                    .63 1.59.23 2.76.11 3.05
+                    .74.81 1.19 1.84 1.19 3.1
+                    0 4.42-2.69 5.39-5.25 5.68
+                    .41.35.77 1.04.77 2.1
+                    0 1.52-.01 2.74-.01 3.11
+                    0 .31.21.67.8.56
+                    A11.52 11.52 0 0 0 23.5 12
+                    C23.5 5.65 18.35.5 12 .5Z
+                "/>
+
+            </svg>
+
+        </a>
+
+
+        <a
+            href="https://www.figma.com/files/team/1574712203217024027/folder/504070794?fuid=1574712200959679073"
+            target="_blank"
+            aria-label="Figma wireframe"
+        >
+          F  
+        </a>
+
+
+        <a
+            href="https://www.linkedin.com/in/pradeepkumar-r-a68593351?"
+            target="_blank"
+            aria-label="LinkedIn"
+            class="linkedin-badge"
+        >
+           in
+
+        </a>
+
+
+        <a
+            href="mailto:rpradeepkumar546@gmail.com"
+            aria-label="Email"
+        >
+            ✉
+        </a>
+
+
+        <a
+            href="tel:+916385368529"
+            aria-label="Phone"
+        >
+            ☎
+        </a>
+
+
+        <a
+            href="https://drive.google.com/file/d/1mio6n8wTtjX2FqgRW_lLRG2pxWJ7GGhH/view?usp=drivesdk"
+            aria-label="Resume"
+        >
+            ▤
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     2. ABOUT ME
+===================================================== -->
+
+<section id="about" class="page">
+
+    <h2 class="section-title reveal">
+        About Me
+    </h2>
+
+    <div class="underline reveal"></div>
+
+
+    <div class="about-content reveal">
+
+        <p>
+            Hi, I'm <strong>Pradeepkumar R</strong>, a Computer Science
+            and Engineering student with a strong interest in modern
+            software development.
+        </p>
+
+        <p>
+            I enjoy working on projects that combine creativity and
+            technology — from building web applications with HTML,
+            CSS, JavaScript, PHP, and MySQL to exploring cloud-native
+            tools like React.js, Node.js, Docker, and Kubernetes.
+        </p>
+
+        <p>
+            Beyond academics, I'm curious about AI & Machine Learning,
+            game development in Unity, and experimenting with databases
+            like Apache Cassandra.
+        </p>
+
+        <p>
+            My goal is to keep learning, solving real-world problems,
+            and contributing to impactful projects.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     3. SKILLS & TOOLS
+===================================================== -->
+
+<section id="skills" class="page dotted">
+
+    <h2 class="section-title reveal">
+        Skills & Tools
+    </h2>
+
+    <div class="underline reveal"></div>
+
+
+    <div class="skills-grid">
+
+        <div class="skill-card reveal">
+
+            <div class="skill-icon">
+                F
+            </div>
+
+            <div>
+                <h3>Front End Development</h3>
+                <p>HTML, CSS, JavaScript</p>
+            </div>
+
+        </div>
+
+
+        <div class="skill-card reveal">
+
+            <div class="skill-icon">
+                B
+            </div>
+
+            <div>
+                <h3>Backend Development</h3>
+                <p>PHP, MySQL</p>
+            </div>
+
+        </div>
+
+
+        <div class="skill-card reveal">
+
+            <div class="skill-icon">
+                UI
+            </div>
+
+            <div>
+                <h3>UI/UX Design</h3>
+                <p>Design & Prototyping</p>
+            </div>
+
+        </div>
+
+
+        <div class="skill-card reveal">
+
+            <div class="skill-icon">
+                D
+            </div>
+
+            <div>
+                <h3>Docker</h3>
+                <p>Containerization</p>
+            </div>
+
+        </div>
+
+
+        <div class="skill-card reveal">
+
+            <div class="skill-icon">
+                K
+            </div>
+
+            <div>
+                <h3>Kubernetes</h3>
+                <p>Cloud Native</p>
+            </div>
+
+        </div>
+
+
+        <div class="skill-card reveal">
+
+            <div class="skill-icon">
+                AI
+            </div>
+
+            <div>
+                <h3>AI & Machine Learning</h3>
+                <p>Intelligent Systems</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     4. SELECTED WORK
+===================================================== -->
+
+<section id="work" class="page">
+
+    <h2 class="section-title reveal">
+        Selected Work
+    </h2>
+
+    <div class="underline reveal"></div>
+
+
+    <div class="work-grid">
+
+
+        <div class="project-card reveal">
+
+            <div class="project-number">
+                01
+            </div>
+
+            <h3>
+                Devetryx
+            </h3>
+
+            <p>
+                A beginner-friendly coding learning platform
+                with chatbot facilities, online compilers,
+                and simple teaching modules.
+            </p>
+
+            <div class="tags">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+            </div>
+
+        </div>
+
+
+        <div class="project-card reveal">
+
+            <div class="project-number">
+                02
+            </div>
+
+            <h3>
+                Language Literature
+            </h3>
+
+            <p>
+                An application that captures signage images
+                and transliterates words into native or
+                other languages.
+            </p>
+
+            <div class="tags">
+                <span>AI</span>
+                <span>Image Processing</span>
+                <span>SIH</span>
+            </div>
+
+        </div>
+
+
+        <div class="project-card reveal">
+
+            <div class="project-number">
+                03
+            </div>
+
+            <h3>
+                Smart Waste Management
+            </h3>
+
+            <p>
+                An AI-powered waste management system that
+                classifies waste and automatically triggers
+                collection when the dustbin becomes full.
+            </p>
+
+            <div class="tags">
+                <span>AI</span>
+                <span>Automation</span>
+                <span>Web</span>
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     5. EDUCATION
+===================================================== -->
+
+<section id="education" class="page dotted">
+
+    <h2 class="section-title reveal">
+        Education
+    </h2>
+
+    <div class="underline reveal"></div>
+
+
+    <div class="education-container">
+
+        <div class="education-item reveal">
+
+            <div class="timeline-dot"></div>
+
+
+            <div class="education-card">
+
+                <div class="year">
+                    2024 - 2028
+                </div>
+
+                <h3>
+                    B.E Computer Science and Engineering
+                </h3>
+
+                <div class="college">
+                    Coimbatore Institute of Engineering and Technology
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CERTIFICATIONS
+===================================================== -->
+
+<section id="certifications" class="page">
+
+    <h2 class="section-title reveal">
+        Certifications
+    </h2>
+
+    <div class="underline reveal"></div>
+
+
+    <div class="cert-list">
+
+        <!-- =========================
+             JEE MAIN CERTIFICATE
+        ========================== -->
+
+        <a
+            href="https://drive.google.com/file/d/12n2MQdJXiLpREcoDamnoH9O7IuLC7RCk/view?usp=drivesdk"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="cert-card reveal"
+        >
+
+            <div class="cert-icon">
+                ♧
+            </div>
+
+            <div class="cert-info">
+
+                <h3>
+                    JOINT ENTRANCE EXAMINATION (MAIN) CERTIFICATE 
+                </h3>
+
+                <p>
+                    National Testing Agency · 12/02/2024
+                </p>
+
+            </div>
+
+            <div class="arrow">
+                ›
+            </div>
+
+        </a>
+
+        <!-- =========================
+             NPTEL CERTIFICATE
+        ========================== -->
+
+        <a
+            href="https://drive.google.com/file/d/16hIjaqwIR5miYJb3-oXEm5TrkcYz6s58/view?usp=drivesdk"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="cert-card reveal"
+        >
+
+            <div class="cert-icon">
+                ♧
+            </div>
+
+            <div class="cert-info">
+
+                <h3>
+                    NPTEL CERTIFICATE 
+                </h3>
+
+                <p>
+                    The Joy of Computing Using Python · Jan - Apr 2025
+                </p>
+
+            </div>
+
+            <div class="arrow">
+                ›
+            </div>
+
+        </a>
+
+
+        <!-- =========================
+             INTERNSHIP
+        ========================== -->
+
+        <a
+            href="https://drive.google.com/file/d/1ituFgVAVfm4xLN6P_4UFTFV9sQ_l3ry0/view?usp=drivesdk"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="cert-card reveal"
+        >
+
+            <div class="cert-icon">
+                ♧
+            </div>
+
+            <div class="cert-info">
+
+                <h3>
+                    INTERNSHIP
+                </h3>
+
+                <p>
+                    NUX Software Solutions · 29/06/2026
+                </p>
+
+            </div>
+
+            <div class="arrow">
+                ›
+            </div>
+
+        </a>
+
+
+
+        <!-- =========================
+             GOOGLE QUIZ
+        ========================== -->
+
+        <a
+            href="https://drive.google.com/file/d/17DRzfuhRaIDaRvPAaCbdA8UM4yAwB3Wr/view?usp=drivesdk"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="cert-card reveal"
+        >
+
+            <div class="cert-icon">
+                ♧
+            </div>
+
+            <div class="cert-info">
+
+                <h3>
+                    Google Quiz 2026 - India's Biggest AI Quiz
+                </h3>
+
+                <p>
+                    Unstop Campus Crew · 19/07/2026
+                </p>
+
+            </div>
+
+            <div class="arrow">
+                ›
+            </div>
+
+        </a>
+
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     6. CONTACT
+===================================================== -->
+
+<section id="contact" class="page">
+
+    <h2 class="section-title reveal">
+        Contact
+    </h2>
+
+    <div class="underline reveal"></div>
+
+
+    <div class="contact-box reveal">
+
+
+        <!-- EMAIL -->
+
+        <a
+            href="mailto:rpradeepkumar546@gmail.com"
+            class="contact-line"
+        >
+
+            <span class="contact-line-icon">
+                ✉
+            </span>
+
+            <span>
+                rpradeepkumar546@gmail.com
+            </span>
+
+        </a>
+
+
+        <!-- PHONE -->
+
+        <a
+            href="tel:+916385368529"
+            class="contact-line"
+        >
+
+            <span class="contact-line-icon">
+                ☎
+            </span>
+
+            <span>
+                +91 6385368529
+            </span>
+
+        </a>
+
+
+        <!-- SOCIAL ICONS -->
+
+        <div class="contact-social">
+
+
+            <!-- GITHUB -->
+
+            <a
+                href="https://github.com/rpradeepkumar546-tech"
+                target="_blank"
+                aria-label="GitHub"
+            >
+
+                <svg
+                    class="github-icon"
+                    viewBox="0 0 24 24"
+                >
+
+                    <path d="
+                        M12 .5
+                        C5.65 .5 .5 5.65 .5 12
+                        c0 5.08 3.29 9.39 7.86 10.91
+                        .58.11.79-.25.79-.56
+                        0-.27-.01-1.16-.02-2.11
+                        -3.2.7-3.88-1.37-3.88-1.37
+                        -.53-1.33-1.28-1.68-1.28-1.68
+                        -1.05-.72.08-.7.08-.7
+                        1.16.08 1.77 1.19 1.77 1.19
+                        1.03 1.76 2.71 1.25 3.37.95
+                        .1-.75.4-1.25.73-1.54
+                        -2.55-.29-5.23-1.28-5.23-5.69
+                        0-1.26.45-2.29 1.19-3.1
+                        -.12-.29-.52-1.46.11-3.05
+                        0 0 .97-.31 3.17 1.18
+                        .92-.26 1.9-.39 2.88-.39
+                        .98 0 1.96.13 2.88.39
+                        2.2-1.49 3.17-1.18 3.17-1.18
+                        .63 1.59.23 2.76.11 3.05
+                        .74.81 1.19 1.84 1.19 3.1
+                        0 4.42-2.69 5.39-5.25 5.68
+                        .41.35.77 1.04.77 2.1
+                        0 1.52-.01 2.74-.01 3.11
+                        0 .31.21.67.8.56
+                        A11.52 11.52 0 0 0 23.5 12
+                        C23.5 5.65 18.35.5 12 .5Z
+                    "/>
+
+                </svg>
+
+            </a>
+
+
+            <!-- LINKEDIN -->
+
+            <a
+                href="https://www.linkedin.com/in/pradeepkumar-r-a68593351?"
+                target="_blank"
+                aria-label="LinkedIn"
+            >
+                in
+
+            </a>
+
+
+            <!-- RESUME -->
+
+            <a
+                href="https://drive.google.com/file/d/1mio6n8wTtjX2FqgRW_lLRG2pxWJ7GGhH/view?usp=drivesdk"
+                aria-label="Resume"
+            >
+                ▤
+            </a>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer class="copyright">
+    <strong>@ <span id="copyrightYear"></span> Pradeepkumar R. · All Rights Reserved.</strong>
+</footer>
+
+<script>
+
+/* =====================================================
+   SCROLL REVEAL
+
+   IMPORTANT:
+   Once an element appears, it NEVER gets hidden again.
+===================================================== */
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+
+document.getElementById("copyrightYear").textContent =
+    new Date().getFullYear();
+
+
+const observer =
+    new IntersectionObserver(
+
+        (entries, observer) => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("show");
+
+                    /*
+                       Stop observing after appearing.
+
+                       Therefore it will NEVER disappear
+                       when the user scrolls away.
+                    */
+
+                    observer.unobserve(entry.target);
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold: 0.12
+        }
+
+    );
+
+
+revealElements.forEach(element => {
+
+    observer.observe(element);
+
+});
+
+
+
+/* =====================================================
+   THEME SWITCH
+===================================================== */
+
+const themeButton =
+    document.getElementById("themeButton");
+
+
+let lightMode = false;
+
+
+themeButton.addEventListener("click", () => {
+
+    lightMode = !lightMode;
+
+
+    if (lightMode) {
+
+        document.body.classList.add("light");
+
+        themeButton.textContent = "☾";
+
+    }
+
+    else {
+
+        document.body.classList.remove("light");
+
+        themeButton.textContent = "☼";
+
+    }
+
+});
+
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+document.querySelectorAll(
+    '.nav-link[href^="#"]'
+).forEach(link => {
+
+    link.addEventListener("click", function(e) {
+
+        const target =
+            document.querySelector(
+                this.getAttribute("href")
+            );
+
+
+        if (target) {
+
+            e.preventDefault();
+
+
+            target.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+        }
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
